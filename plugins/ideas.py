@@ -1,4 +1,5 @@
 import requests
+import nekos
 
 from pyrogram import filters
 from TheApi import api
@@ -23,30 +24,41 @@ async def get_joke(_, message):
 bored_api_url = "https://apis.scrimba.com/bored/api/activity"
 
 
-@app.on_message(filters.command("bored", prefixes="/"))
+@app.on_message(filters.command("bored"))
 async def bored_command(client, message):
     response = requests.get(bored_api_url)
     if response.status_code == 200:
         data = response.json()
         activity = data.get("activity")
         if activity:
-            await message.reply(f"𝗙𝗲𝗲𝗹𝗶𝗻𝗴 𝗯𝗼𝗿𝗲𝗱? 𝗛𝗼𝘄 𝗮𝗯𝗼𝘂𝘁:\n\n {activity}")
+            await message.reply(f"{activity}")
         else:
             await message.reply("Nᴏ ᴀᴄᴛɪᴠɪᴛʏ ғᴏᴜɴᴅ.")
     else:
         await message.reply("Fᴀɪʟᴇᴅ ᴛᴏ ғᴇᴛᴄʜ ᴀᴄᴛɪᴠɪᴛʏ.")
-        
+
+@app.on_message(filters.command("hug"))
+async def huggg(client, message):
+    try:
+        if message.reply_to_message:
+            await message.reply_video(
+                nekos.img("hug"),
+                caption=f"{message.from_user.mention} hugged {message.reply_to_message.from_user.mention}",
+            )
+        else:
+            await message.reply_video(nekos.img("hug"))
+    except Exception as e:
+        await message.reply_text(f"Error: {e}")
+
+
 __MODULE__ = "Iᴅᴇᴀs"
 __HELP__ = """
 /advice - Gᴇᴛ ʀᴀɴᴅᴏᴍ ᴀᴅᴠɪᴄᴇ.
 /bored - Gᴇᴛs ʀᴀɴᴅᴏᴍ ᴀᴄᴛɪᴠɪᴛʏ.
 /joke - Gᴇᴛs ʀᴀɴᴅᴏᴍ Jᴏᴋᴇs.
 /quiz - Gᴇᴛs ʀᴀɴᴅᴏᴍ ǫᴜɪᴢ.
+
+/cat - Gᴇᴛ A Cᴀᴛ Aɴɪᴍᴀᴛɪᴏɴ.
+/dog - Gᴇᴛ A Dᴏɢ Aɴɪᴍᴀᴛɪᴏɴ.
+/hug: Gᴇᴛ ᴀ ʜᴜɢɢɪɴɢ ᴀɴɪᴍᴀᴛɪᴏɴ. Iғ ᴜsᴇᴅ ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴀɴᴏᴛʜᴇʀ ᴍᴇssᴀɢᴇ, ɪᴛ ᴍᴇɴᴛɪᴏɴs ᴛʜᴇ sᴇɴᴅᴇʀ ᴀɴᴅ ʀᴇᴄɪᴘɪᴇɴᴛ ᴏғ ᴛʜᴇ ʜᴜɢ.
 """
-
-
-
-
-
-
-
