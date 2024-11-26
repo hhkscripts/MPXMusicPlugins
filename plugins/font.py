@@ -2547,10 +2547,3 @@ async def style(c, m):
         await m.message.edit_text(f"`{new_text}`")
     except BaseException:
         pass
-
-
-__HELP__ = """
-• /font [text] - ᴄᴏɴᴠᴇʀᴛs sɪᴍᴩʟᴇ ᴛᴇxᴛ ᴛᴏ ʙᴇᴀᴜᴛɪғᴜʟ ᴛᴇxᴛ ʙʏ ᴄʜᴀɴɢɪɴɢ ɪᴛ's ғᴏɴᴛ.
- """
-
-__MODULE__ = "Fᴏɴᴛ"
