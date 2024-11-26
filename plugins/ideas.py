@@ -1,17 +1,19 @@
 import requests
 import nekos
 
+from googlesearch import search
 from pyrogram import filters
 from TheApi import api
 from MPXMusic import app
 
-
+# Advice
 @app.on_message(filters.command("advice"))
 async def advice(_, message):
     A = await message.reply_text("...")
     res = await api.get_advice()
     await A.edit(res)
 
+# Joke
 @app.on_message(filters.command("joke"))
 async def get_joke(_, message):
     response = requests.get(
@@ -23,7 +25,7 @@ async def get_joke(_, message):
 
 bored_api_url = "https://apis.scrimba.com/bored/api/activity"
 
-
+# Bored
 @app.on_message(filters.command("bored"))
 async def bored_command(client, message):
     response = requests.get(bored_api_url)
@@ -50,6 +52,7 @@ async def huggg(client, message):
     except Exception as e:
         await message.reply_text(f"Error: {e}")
 
+# Generate QR
 @app.on_message(filters.command(["qr"]))
 async def write_text(client, message):
     if len(message.command) < 2:
@@ -61,6 +64,31 @@ async def write_text(client, message):
         chat_id=message.chat.id, photo=photo_url, caption="Here is your qrcode"
     )
 
+# Google
+@app.on_message(filters.command(["google", "gle"]))
+async def google(bot, message):
+    if len(message.command) < 2 and not message.reply_to_message:
+        await message.reply_text("Example:\n\n`/google lord ram`")
+        return
+
+    if message.reply_to_message and message.reply_to_message.text:
+        user_input = message.reply_to_message.text
+    else:
+        user_input = " ".join(message.command[1:])
+    b = await message.reply_text("**Sᴇᴀʀᴄʜɪɴɢ ᴏɴ Gᴏᴏɢʟᴇ....**")
+    try:
+        a = search(user_input, advanced=True)
+        txt = f"Search Query: {user_input}\n\nresults"
+        for result in a:
+            txt += f"\n\n[❍ {result.title}]({result.url})\n<b>{result.description}</b>"
+        await b.edit(
+            txt,
+            disable_web_page_preview=True,
+        )
+    except Exception as e:
+        await b.edit(e)
+
+
 __MODULE__ = "Iᴅᴇᴀs"
 __HELP__ = """
 /advice - Gᴇᴛ ʀᴀɴᴅᴏᴍ ᴀᴅᴠɪᴄᴇ.
@@ -69,6 +97,8 @@ __HELP__ = """
 /quiz - Gᴇᴛs ʀᴀɴᴅᴏᴍ ǫᴜɪᴢ.
 
 /qr - Gᴇᴛs Gᴇɴᴇʀᴀᴛᴇᴅ QR.
+
+/google [ǫᴜᴇʀʏ] - ᴛᴏ sᴇᴀʀᴄʜ ᴏɴ ɢᴏᴏɢʟᴇ ᴀɴᴅ ɢᴇᴛ ʀᴇsᴜʟᴛs.
 
 /cat - Gᴇᴛ A Cᴀᴛ Aɴɪᴍᴀᴛɪᴏɴ.
 /dog - Gᴇᴛ A Dᴏɢ Aɴɪᴍᴀᴛɪᴏɴ.
