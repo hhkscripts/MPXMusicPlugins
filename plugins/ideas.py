@@ -50,6 +50,16 @@ async def huggg(client, message):
     except Exception as e:
         await message.reply_text(f"Error: {e}")
 
+@app.on_message(filters.command(["qr"]))
+async def write_text(client, message):
+    if len(message.command) < 2:
+        await message.reply_text("**Usage**\n:- `/qr https://t.me/HeinHtetKyaw`")
+        return
+    text = " ".join(message.command[1:])
+    photo_url = "https://apis.xditya.me/qr/gen?text=" + text
+    await app.send_photo(
+        chat_id=message.chat.id, photo=photo_url, caption="Here is your qrcode"
+    )
 
 __MODULE__ = "Iᴅᴇᴀs"
 __HELP__ = """
@@ -57,6 +67,8 @@ __HELP__ = """
 /bored - Gᴇᴛs ʀᴀɴᴅᴏᴍ ᴀᴄᴛɪᴠɪᴛʏ.
 /joke - Gᴇᴛs ʀᴀɴᴅᴏᴍ Jᴏᴋᴇs.
 /quiz - Gᴇᴛs ʀᴀɴᴅᴏᴍ ǫᴜɪᴢ.
+
+/qr - Gᴇᴛs Gᴇɴᴇʀᴀᴛᴇᴅ QR.
 
 /cat - Gᴇᴛ A Cᴀᴛ Aɴɪᴍᴀᴛɪᴏɴ.
 /dog - Gᴇᴛ A Dᴏɢ Aɴɪᴍᴀᴛɪᴏɴ.
