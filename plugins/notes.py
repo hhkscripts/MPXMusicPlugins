@@ -50,7 +50,7 @@ async def eor(msg: Message, **kwargs):
     return await func(**{k: v for k, v in kwargs.items() if k in spec})
 
 
-@app.on_message(filters.command("save") & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command("sv") & filters.group & ~BANNED_USERS)
 @adminsOnly("can_change_info")
 async def save_notee(_, message):
     try:
@@ -122,7 +122,7 @@ async def save_notee(_, message):
         )
 
 
-@app.on_message(filters.command("notes") & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command("nt") & filters.group & ~BANNED_USERS)
 @capture_err
 async def get_notes(_, message):
     chat_id = message.chat.id
@@ -138,7 +138,7 @@ async def get_notes(_, message):
     await eor(message, text=msg)
 
 
-@app.on_message(filters.command("get") & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command("gt") & filters.group & ~BANNED_USERS)
 @capture_err
 async def get_one_note(_, message):
     if len(message.text.split()) < 2:
@@ -321,7 +321,7 @@ async def get_reply(message, type, file_id, data, keyb):
         )
 
 
-@app.on_message(filters.command("delete") & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command("dl") & filters.group & ~BANNED_USERS)
 @adminsOnly("can_change_info")
 async def del_note(_, message):
     if len(message.command) < 2:
@@ -339,7 +339,7 @@ async def del_note(_, message):
         await eor(message, text="**No such note.**")
 
 
-@app.on_message(filters.command("deleteall") & filters.group & ~BANNED_USERS)
+@app.on_message(filters.command("dla") & filters.group & ~BANNED_USERS)
 @adminsOnly("can_change_info")
 async def delete_all(_, message):
     _notes = await get_note_names(message.chat.id)
@@ -387,9 +387,9 @@ __MODULE__ = "Nᴏᴛᴇs"
 __HELP__ = """
 **ɴᴏᴛᴇꜱ:**
 
-• `/save [NOTE_NAME] [CONTENT]`: Sᴀᴠᴇs ᴀ ɴᴏᴛᴇ ᴡɪᴛʜ ᴛʜᴇ ɢɪᴠᴇɴ ɴᴀᴍᴇ ᴀɴᴅ ᴄᴏɴᴛᴇɴᴛ.
-• `/notes`: Sʜᴏᴡs ᴀʟʟ sᴀᴠᴇᴅ ɴᴏᴛᴇꜱ ɪɴ ᴛʜᴇ ᴄʜᴀᴛ.
-• `/get [NOTE_NAME]`: Gᴇᴛs ᴛʜᴇ ᴄᴏɴᴛᴇɴᴛ ᴏғ ᴀ sᴀᴠᴇᴅ ɴᴏᴛᴇ.
-• `/delete [NOTE_NAME]`: Dᴇʟᴇᴛᴇs ᴀ sᴀᴠᴇᴅ ɴᴏᴛᴇ.
-• `/deleteall`: Dᴇʟᴇᴛᴇs ᴀʟʟ sᴀᴠᴇᴅ ɴᴏᴛᴇꜱ ɪɴ ᴛʜᴇ ᴄʜᴀᴛ.
+/sv [NOTE_NAME] [CONTENT]: Sᴀᴠᴇs ᴀ ɴᴏᴛᴇ ᴡɪᴛʜ ᴛʜᴇ ɢɪᴠᴇɴ ɴᴀᴍᴇ ᴀɴᴅ ᴄᴏɴᴛᴇɴᴛ.
+/nt: Sʜᴏᴡs ᴀʟʟ sᴀᴠᴇᴅ ɴᴏᴛᴇꜱ ɪɴ ᴛʜᴇ ᴄʜᴀᴛ.
+/gt [NOTE_NAME]: Gᴇᴛs ᴛʜᴇ ᴄᴏɴᴛᴇɴᴛ ᴏғ ᴀ sᴀᴠᴇᴅ ɴᴏᴛᴇ.
+/dl [NOTE_NAME]: Dᴇʟᴇᴛᴇs ᴀ sᴀᴠᴇᴅ ɴᴏᴛᴇ.
+/dla: Dᴇʟᴇᴛᴇs ᴀʟʟ sᴀᴠᴇᴅ ɴᴏᴛᴇꜱ ɪɴ ᴛʜᴇ ᴄʜᴀᴛ.
 """
