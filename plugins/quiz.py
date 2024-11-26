@@ -46,7 +46,3 @@ async def quiz(client, message):
         type=PollType.QUIZ,
         correct_option_id=cid,
     )
-
-
-__MODULE__ = "Qᴜɪᴢ"
-__HELP__ = " /quiz - ᴛᴏ ɢᴇᴛ ᴀɴ ʀᴀɴᴅᴏᴍ ǫᴜɪᴢ"

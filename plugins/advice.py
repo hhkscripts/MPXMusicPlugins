@@ -10,6 +10,9 @@ async def advice(_, message):
     await A.edit(res)
 
 
-__MODULE__ = "Aᴅᴠɪᴄᴇ"
+__MODULE__ = "Exᴛʀᴀ"
 __HELP__ = """
-/advice - Gᴇᴛ ʀᴀɴᴅᴏᴍ ᴀᴅᴠɪᴄᴇ"""
+/advice - Gᴇᴛ ʀᴀɴᴅᴏᴍ ᴀᴅᴠɪᴄᴇ.
+/bored - Gᴇᴛs ʀᴀɴᴅᴏᴍ ᴀᴄᴛɪᴠɪᴛʏ ɪғ ʏᴏᴜ'ʀᴇ ʙᴏʀᴇᴅ.
+ quiz - ᴛᴏ ɢᴇᴛ ᴀɴ ʀᴀɴᴅᴏᴍ ǫᴜɪᴢ.
+"""
