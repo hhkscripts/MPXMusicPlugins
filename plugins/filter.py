@@ -23,32 +23,13 @@ from utils.permissions import adminsOnly, member_permissions
 
 from .notes import extract_urls
 
-
-__MODULE__ = "Filters"
-__HELP__ = """/filters To Get All The Filters In The Chat.
-/filter [FILTER_NAME] To Save A Filter(reply to a message).
-
-Supported filter types are Text, Animation, Photo, Document, Video, video notes, Audio, Voice.
-
-To use more words in a filter use.
-`/filter Hey_there` To filter "Hey there".
-
-/stop [FILTER_NAME] To Stop A Filter.
-/stopall To delete all the filters in a chat (permanently).
-
-You can use markdown or html to save text too.
-
-Checkout /markdownhelp to know more about formattings and other syntax.
-"""
-
-
-@app.on_message(filters.command("filter") & ~filters.private & ~BANNED_USERS)
+@app.on_message(filters.command("fl") & ~filters.private & ~BANNED_USERS)
 @adminsOnly("can_change_info")
 async def save_filters(_, message):
     try:
         if len(message.command) < 2:
             return await message.reply_text(
-                "**ᴜsᴀsɢᴇ:**\nʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴡɪᴛʜ  /filter [FILTER_NAME] [CONTENT] ᴛᴏ sᴇᴛ ᴀ ɴᴇᴡ ғɪʟᴛᴇʀ."
+                "**ᴜsᴀsɢᴇ:**\nʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴡɪᴛʜ  /fl [FILTER_NAME] [CONTENT] ᴛᴏ sᴇᴛ ᴀ ɴᴇᴡ ғɪʟᴛᴇʀ."
             )
         replied_message = message.reply_to_message
         if not replied_message:
@@ -60,7 +41,7 @@ async def save_filters(_, message):
             )
         if data == "error":
             return await message.reply_text(
-                "**ᴜsᴀsɢᴇ:**\n__/filter [FILTER_NAME] [CONTENT]__\n`-----------OR-----------`\nʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴡɪᴛʜ. \n/filter [FILTER_NAME]."
+                "**ᴜsᴀsɢᴇ:**\n__/fl [FILTER_NAME] [CONTENT]__\n`-----------OR-----------`\nʀᴇᴘʟʏ ᴛᴏ ᴀ ᴍᴇssᴀɢᴇ ᴡɪᴛʜ. \n/filter [FILTER_NAME]."
             )
         if replied_message.text:
             _type = "text"
@@ -118,7 +99,7 @@ async def save_filters(_, message):
         )
 
 
-@app.on_message(filters.command("filters") & ~filters.private & ~BANNED_USERS)
+@app.on_message(filters.command("fls") & ~filters.private & ~BANNED_USERS)
 @capture_err
 async def get_filterss(_, message):
     _filters = await get_filters_names(message.chat.id)
@@ -257,7 +238,7 @@ async def filters_re(_, message):
             return  # NOTE: Avoid filter spam
 
 
-@app.on_message(filters.command("stopall") & ~filters.private & ~BANNED_USERS)
+@app.on_message(filters.command("sfls") & ~filters.private & ~BANNED_USERS)
 @adminsOnly("can_change_info")
 async def stop_all(_, message):
     _filters = await get_filters_names(message.chat.id)

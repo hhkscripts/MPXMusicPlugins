@@ -26,11 +26,3 @@ async def bots(client, message):
             await app.send_message(message.chat.id, text3)
     except FloodWait as e:
         await asyncio.sleep(e.value)
-
-
-__MODULE__ = "Bᴏᴛs"
-__HELP__ = """
-**ʙᴏᴛs**
-
-/bots - ɢᴇᴛ ᴀ ʟɪsᴛ ᴏғ ʙᴏᴛs ɪɴ ᴛʜᴇ ɢʀᴏᴜᴘ.
-"""
