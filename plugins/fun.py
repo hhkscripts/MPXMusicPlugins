@@ -1,7 +1,7 @@
 import requests
 from pyrogram import filters
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
-from MPX import app
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from MPXMusic import app
 
 
 @app.on_message(

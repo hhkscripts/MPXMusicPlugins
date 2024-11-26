@@ -1,22 +1,24 @@
 #
 # Copyright (C) 2024 by TheTeamVivek@Github, < https://github.com/TheTeamVivek >.
 #
-# This file is part of < https://github.com/TheTeamVivek/MPX > project,
+# This file is part of < https://github.com/TheTeamVivek/MPXMusic > project,
 # and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/TheTeamVivek/MPX/blob/master/LICENSE >
+# Please see < https://github.com/TheTeamVivek/MPXMusic/blob/master/LICENSE >
 #
 # All rights reserved.
 #
 
 from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter
-from pyrogram.types import ChatJoinRequest
 from pyrogram.errors.exceptions.bad_request_400 import UserAlreadyParticipant
-from MPX import app
-from MPX.core.mongo import mongodb
-from MPX.misc import SUDOERS
-from MPX.utils.keyboard import ikb
+from pyrogram.types import ChatJoinRequest
+from MPXMusic import app
+from MPXMusic.core.mongo import mongodb
+from MPXMusic.misc import SUDOERS
+from MPXMusic.utils.keyboard import ikb
+
 from utils.permissions import adminsOnly, member_permissions
+
 
 approvaldb = mongodb.autoapprove
 

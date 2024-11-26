@@ -1,6 +1,6 @@
 from pyrogram import enums, filters
+from MPXMusic import app
 
-from MPX import app
 from utils.permissions import adminsOnly
 
 

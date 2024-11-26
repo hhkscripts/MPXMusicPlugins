@@ -10,22 +10,17 @@ from pyrogram.types import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
 )
+from MPXMusic import app
+from MPXMusic.misc import SUDOERS
+from MPXMusic.utils.database import is_gbanned_user
+from MPXMusic.utils.functions import check_format, extract_text_and_keyb
+from MPXMusic.utils.keyboard import ikb
 
-from MPX import app
-from MPX.misc import SUDOERS
-from .notes import extract_urls
-from MPX.utils.database import is_gbanned_user
-
-from utils import (
-    del_welcome,
-    get_welcome,
-    set_welcome,
-)
-
+from utils import del_welcome, get_welcome, set_welcome
 from utils.error import capture_err
-from MPX.utils.functions import check_format, extract_text_and_keyb
-from MPX.utils.keyboard import ikb
 from utils.permissions import adminsOnly
+
+from .notes import extract_urls
 
 
 async def handle_new_member(member, chat):

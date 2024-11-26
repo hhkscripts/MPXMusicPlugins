@@ -1,29 +1,27 @@
-import re
 import datetime
-from pyrogram import filters
-from pyrogram.types import (
-    InlineKeyboardButton,
-    InlineKeyboardMarkup,
-)
+import re
 
-from MPX import app
-from utils.error import capture_err
-from utils.permissions import adminsOnly, member_permissions
-from MPX.utils.keyboard import ikb
-from .notes import extract_urls
-from MPX.utils.functions import (
-    check_format,
-    extract_text_and_keyb,
-    get_data_and_name,
-)
-from MPX.utils.database import (
+from config import BANNED_USERS
+from pyrogram import filters
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from MPXMusic import app
+from MPXMusic.utils.database import (
     deleteall_filters,
     get_filter,
     get_filters_names,
     save_filter,
 )
+from MPXMusic.utils.functions import (
+    check_format,
+    extract_text_and_keyb,
+    get_data_and_name,
+)
+from MPXMusic.utils.keyboard import ikb
 
-from config import BANNED_USERS
+from utils.error import capture_err
+from utils.permissions import adminsOnly, member_permissions
+
+from .notes import extract_urls
 
 
 __MODULE__ = "Filters"

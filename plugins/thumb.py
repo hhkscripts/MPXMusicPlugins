@@ -1,9 +1,8 @@
 import re
 
 from pyrogram import filters
-
-from MPX import app
 from youtubesearchpython.__future__ import VideosSearch
+from MPXMusic import app
 
 
 async def gen_infos(url):

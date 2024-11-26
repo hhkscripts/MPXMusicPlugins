@@ -2,7 +2,7 @@ import requests
 from MukeshAPI import api
 from pyrogram import filters
 from pyrogram.enums import ChatAction
-from MPX import app
+from MPXMusic import app
 
 
 @app.on_message(filters.command(["gemini"]))

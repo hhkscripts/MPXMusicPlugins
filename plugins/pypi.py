@@ -1,8 +1,7 @@
 import requests
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-
-from MPX import app
+from MPXMusic import app
 
 
 def get_pypi_info(package_name):

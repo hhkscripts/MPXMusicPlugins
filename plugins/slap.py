@@ -1,6 +1,6 @@
-from MPX import app
-from pyrogram import filters
 import nekos
+from pyrogram import filters
+from MPXMusic import app
 
 
 @app.on_message(filters.command("slap"))

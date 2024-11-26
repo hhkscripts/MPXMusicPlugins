@@ -1,4 +1,5 @@
-from MPX.core.mongo import mongodb
+from MPXMusic.core.mongo import mongodb
+
 
 greetingsdb = mongodb.greetings
 

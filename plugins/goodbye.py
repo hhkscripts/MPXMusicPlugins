@@ -9,22 +9,24 @@ from pyrogram.types import (
     InlineKeyboardMarkup,
     Message,
 )
-from MPX import app
-from MPX.misc import SUDOERS
-from .notes import extract_urls
-from MPX.utils.database import is_gbanned_user
+from MPXMusic import app
+from MPXMusic.misc import SUDOERS
+from MPXMusic.utils.database import is_gbanned_user
+from MPXMusic.utils.functions import check_format, extract_text_and_keyb
+from MPXMusic.utils.keyboard import ikb
+
 from utils import (
     del_goodbye,
     get_goodbye,
-    set_goodbye,
     is_greetings_on,
-    set_greetings_on,
+    set_goodbye,
     set_greetings_off,
+    set_greetings_on,
 )
 from utils.error import capture_err
-from MPX.utils.functions import check_format, extract_text_and_keyb
-from MPX.utils.keyboard import ikb
 from utils.permissions import adminsOnly
+
+from .notes import extract_urls
 
 
 async def handle_left_member(member, chat):

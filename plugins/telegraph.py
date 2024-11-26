@@ -1,8 +1,9 @@
 import os
+
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from MPX import app
 from TheApi import api
+from MPXMusic import app
 
 
 @app.on_message(filters.command(["tgm", "tgt", "telegraph", "tl"]))
@@ -37,7 +38,7 @@ async def get_link_group(client, message):
             local_path = await media.download(progress=progress)
             await text.edit_text("📤 Uᴘʟᴏᴀᴅɪɴɢ ᴛᴏ ᴛᴇʟᴇɢʀᴀᴘʜ...")
 
-            upload_path = api.upload_image(local_path)
+            upload_path = await api.upload_image(local_path)
 
             await text.edit_text(
                 f"🌐 | [ᴜᴘʟᴏᴀᴅᴇᴅ ʟɪɴᴋ]({upload_path})",

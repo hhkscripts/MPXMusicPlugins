@@ -2,8 +2,7 @@ import requests
 from pyrogram import filters
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
-
-from MPX import app
+from MPXMusic import app
 
 
 def download_website(url):

@@ -7,10 +7,11 @@ from os.path import exists, isdir
 
 from pyrogram import filters
 from pyrogram.types import Message
+from MPXMusic import app
+from MPXMusic.misc import SUDOERS
 
-from MPX import app
-from MPX.misc import SUDOERS
 from utils.error import capture_err
+
 
 MAX_MESSAGE_SIZE_LIMIT = 4095
 

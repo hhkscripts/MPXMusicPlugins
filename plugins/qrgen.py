@@ -1,6 +1,5 @@
 from pyrogram import filters
-
-from MPX import app
+from MPXMusic import app
 
 
 @app.on_message(filters.command(["qr"]))

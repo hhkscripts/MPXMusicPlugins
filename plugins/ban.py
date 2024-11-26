@@ -1,32 +1,33 @@
 import asyncio
 from contextlib import suppress
+from string import ascii_lowercase
+from typing import Dict, Union
 
+from config import BANNED_USERS
 from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter, ChatMemberStatus, ChatType
 from pyrogram.types import (
     CallbackQuery,
     ChatPermissions,
     ChatPrivileges,
-    Message,
     InlineKeyboardButton,
     InlineKeyboardMarkup,
+    Message,
 )
-from string import ascii_lowercase
-from typing import Dict, Union
-
-from MPX import app
-from MPX.misc import SUDOERS
-from MPX.core.mongo import mongodb
-from utils.error import capture_err
-from MPX.utils.keyboard import ikb
-from MPX.utils.database import save_filter
-from MPX.utils.functions import (
+from MPXMusic import app
+from MPXMusic.core.mongo import mongodb
+from MPXMusic.misc import SUDOERS
+from MPXMusic.utils.database import save_filter
+from MPXMusic.utils.functions import (
     extract_user,
     extract_user_and_reason,
     time_converter,
 )
+from MPXMusic.utils.keyboard import ikb
+
+from utils.error import capture_err
 from utils.permissions import adminsOnly, member_permissions
-from config import BANNED_USERS
+
 
 warnsdb = mongodb.warns
 

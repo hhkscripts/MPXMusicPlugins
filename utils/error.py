@@ -1,9 +1,9 @@
 #
 # Copyright (C) 2024 by TheTeamVivek@Github, < https://github.com/TheTeamVivek >.
 #
-# This file is part of < https://github.com/TheTeamVivek/MPX > project,
+# This file is part of < https://github.com/TheTeamVivek/MPXMusic > project,
 # and is released under the MIT License.
-# Please see < https://github.com/TheTeamVivek/MPX/blob/master/LICENSE >
+# Please see < https://github.com/TheTeamVivek/MPXMusic/blob/master/LICENSE >
 #
 # All rights reserved.
 #
@@ -11,10 +11,9 @@
 import traceback
 from functools import wraps
 
-from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
-
 from config import LOG_GROUP_ID
-from MPX import app
+from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
+from MPXMusic import app
 
 
 def split_limits(text):

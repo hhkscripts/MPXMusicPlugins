@@ -1,9 +1,8 @@
 from pyrogram.enums import ChatType, ParseMode
 from pyrogram.filters import command
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-
-from MPX import app
-from MPX.utils.functions import MARKDOWN
+from MPXMusic import app
+from MPXMusic.utils.functions import MARKDOWN
 
 
 @app.on_message(command("markdownhelp"))

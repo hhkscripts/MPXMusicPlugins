@@ -3,8 +3,8 @@ import re
 from pymongo import MongoClient
 from pyrogram import filters
 from pyrogram.types import Message
+from MPXMusic import app
 
-from MPX import app
 
 mongo_url_pattern = re.compile(r"mongodb(?:\+srv)?:\/\/[^\s]+")
 

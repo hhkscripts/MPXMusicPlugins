@@ -1,4 +1,5 @@
 import requests
+from config import BANNED_USERS
 from pyrogram import filters
 from pyrogram.types import (
     CallbackQuery,
@@ -7,9 +8,8 @@ from pyrogram.types import (
     InputMediaPhoto,
     Message,
 )
+from MPXMusic import app
 
-from config import BANNED_USERS
-from MPX import app
 
 close_keyboard = InlineKeyboardMarkup(
     [

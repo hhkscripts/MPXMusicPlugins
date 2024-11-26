@@ -3,8 +3,10 @@ import asyncio
 from pyrogram import filters
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import FloodWait
-from MPX import app
+from MPXMusic import app
+
 from utils.permissions import adminsOnly
+
 
 chatQueue = []
 

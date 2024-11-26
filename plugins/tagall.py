@@ -1,10 +1,9 @@
 import asyncio
+
 from pyrogram import filters
 from pyrogram.enums import ChatMembersFilter
-
 from pyrogram.errors import FloodWait
-
-from MPX import app
+from MPXMusic import app
 
 
 SPAM_CHATS = []

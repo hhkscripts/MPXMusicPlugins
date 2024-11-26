@@ -1,21 +1,24 @@
-from datetime import datetime, timedelta
-import pytz
 import os
 import random
-from pyrogram import filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from pyrogram.enums import ChatType
-from telegraph import upload_file
-from PIL import Image, ImageDraw
-import requests
+from datetime import datetime, timedelta
 
-from utils import get_image, get_couple, save_couple
-from MPX import app
+import pytz
+import requests
+from PIL import Image, ImageDraw
+from pyrogram import filters
+from pyrogram.enums import ChatType
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from TheApi import api
+from MPXMusic import app
+
+from utils import get_couple, get_image, save_couple
+
 
 # get current date in GMT+5:30 timezone
+
+
 def get_today_date():
-    timezone = pytz.timezone("Asia/Yangon")
+    timezone = pytz.timezone("Asia/Kolkata")
     now = datetime.now(timezone)
     return now.strftime("%d/%m/%Y")
 
@@ -24,7 +27,7 @@ def get_today_date():
 
 
 def get_todmorrow_date():
-    timezone = pytz.timezone("Asia/Yangon")
+    timezone = pytz.timezone("Asia/Kolkata")
     tomorrow = datetime.now(timezone) + timedelta(days=1)
     return tomorrow.strftime("%d/%m/%Y")
 
@@ -143,7 +146,7 @@ Nᴇxᴛ ᴄᴏᴜᴘʟᴇs ᴡɪʟʟ ʙᴇ sᴇʟᴇᴄᴛᴇᴅ ᴏɴ {tomorro
             )
 
             await msg.delete()
-            img_url = api.upload_image(test_image_path)
+            img_url = await api.upload_image(test_image_path)
             couple = {"c1_id": c1_id, "c2_id": c2_id}
             await save_couple(cid, today, couple, img_url)
 

@@ -2,10 +2,10 @@ import os
 
 from pyrogram import enums, filters
 from pyrogram.types import Message
+from MPXMusic import app
+from MPXMusic.misc import SUDOERS
+from MPXMusic.utils.database import is_gbanned_user
 
-from MPX import app
-from MPX.misc import SUDOERS
-from MPX.utils.database import is_gbanned_user
 
 n = "\n"
 w = " "
