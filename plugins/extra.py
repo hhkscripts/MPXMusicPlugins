@@ -88,8 +88,23 @@ async def google(bot, message):
     except Exception as e:
         await b.edit(e)
 
+# Slap
+@app.on_message(filters.command("slap"))
+async def slap(client, message):
+    try:
+        if message.reply_to_message:
+            await message.reply_video(
+                nekos.img("slap"),
+                caption=f"{message.from_user.mention} sʟᴀᴘᴘᴇᴅ {message.reply_to_message.from_user.mention}",
+            )
+        else:
+            await message.reply_video(nekos.img("slap"))
+    except Exception as e:
+        await message.reply_text(f"Error: {e}")
 
-__MODULE__ = "Iᴅᴇᴀs"
+
+
+__MODULE__ = "Exᴛʀᴀ"
 __HELP__ = """
 /advice - Gᴇᴛ ʀᴀɴᴅᴏᴍ ᴀᴅᴠɪᴄᴇ.
 /bored - Gᴇᴛs ʀᴀɴᴅᴏᴍ ᴀᴄᴛɪᴠɪᴛʏ.
@@ -102,5 +117,7 @@ __HELP__ = """
 
 /cat - Gᴇᴛ A Cᴀᴛ Aɴɪᴍᴀᴛɪᴏɴ.
 /dog - Gᴇᴛ A Dᴏɢ Aɴɪᴍᴀᴛɪᴏɴ.
-/hug: Gᴇᴛ ᴀ ʜᴜɢɢɪɴɢ ᴀɴɪᴍᴀᴛɪᴏɴ. Iғ ᴜsᴇᴅ ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴀɴᴏᴛʜᴇʀ ᴍᴇssᴀɢᴇ, ɪᴛ ᴍᴇɴᴛɪᴏɴs ᴛʜᴇ sᴇɴᴅᴇʀ ᴀɴᴅ ʀᴇᴄɪᴘɪᴇɴᴛ ᴏғ ᴛʜᴇ ʜᴜɢ.
+/hug - Gᴇᴛ ᴀ ʜᴜɢɢɪɴɢ ᴀɴɪᴍᴀᴛɪᴏɴ. Iғ ᴜsᴇᴅ ᴀs ᴀ ʀᴇᴘʟʏ ᴛᴏ ᴀɴᴏᴛʜᴇʀ ᴍᴇssᴀɢᴇ, ɪᴛ ᴍᴇɴᴛɪᴏɴs ᴛʜᴇ sᴇɴᴅᴇʀ ᴀɴᴅ ʀᴇᴄɪᴘɪᴇɴᴛ ᴏғ ᴛʜᴇ ʜᴜɢ.
+
+/sʟᴀᴘ - Sʟᴀᴘs sᴏᴍᴇᴏɴᴇ. Iғ ᴜsᴇᴅ ᴀs ᴀ ʀᴇᴘʟʏ, sʟᴀᴘs ᴛʜᴇ ʀᴇᴘʟɪᴇᴅ ᴜsᴇʀ.
 """
