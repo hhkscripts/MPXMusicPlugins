@@ -35,21 +35,12 @@ from MPXMusic.utils.stream.stream import stream
 
 
 RADIO_STATION = {
-    "Air Bilaspur": "http://air.pc.cdn.bitgravity.com/air/live/pbaudio110/playlist.m3u8",
-    "Air Raipur": "http://air.pc.cdn.bitgravity.com/air/live/pbaudio118/playlist.m3u8",
-    "Capital FM": "http://media-ice.musicradio.com/CapitalMP3?.mp3&listening-from-radio-garden=1616312105154",
-    "English": "https://hls-01-regions.emgsound.ru/11_msk/playlist.m3u8",
-    "Mirchi": "http://peridot.streamguys.com:7150/Mirchi",
-    "Radio Today": "http://stream.zenolive.com/8wv4d8g4344tv",
-    "Retro Bollywood": "https://stream.zeno.fm/g372rxef798uv",
-    "Hits Of Bollywood": "https://stream.zeno.fm/60ef4p33vxquv",
-    "Dhol Radio": "https://radio.dholradio.co:8000/radio.mp3",
-    "City 91.1 FM": "https://prclive1.listenon.in/",
-    "Radio Udaan": "http://173.212.234.220/radio/8000/radio.mp3",
-    "All India Radio Patna": "https://air.pc.cdn.bitgravity.com/air/live/pbaudio087/playlist.m3u8",
-    "Mirchi 98.3 FM": "https://playerservices.streamtheworld.com/api/livestream-redirect/NJS_HIN_ESTAAC.m3u8",
-    "Hungama 90s Once Again": "https://stream.zeno.fm/rm4i9pdex3cuv",
-    "Hungama Evergreen Bollywood": "https://server.mixify.in:8010/radio.mp3",
+    "Mandalay FM": "https://pplive.comquas.com:5443/LiveApp/streams/ECIK67X0Q0Px1722483310879.m3u8",
+    "Arakan FM": "https://stream.zeno.fm/uhuyx8fve48uv",
+    "Cherry FM": "http://150.95.80.54:8000/stream/89/;",
+    "Thazin FM": "http://212.84.160.3:9232/;",
+    "Padamyar FM": "https://s2.radio.co/s969e6c4b7/listen",
+    "Dhamma": "https://stream.zeno.fm/v3awsfmhnchvv",
 }
 
 valid_stations = "\n".join([f"`{name}`" for name in sorted(RADIO_STATION.keys())])
