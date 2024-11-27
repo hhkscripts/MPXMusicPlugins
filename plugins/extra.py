@@ -7,37 +7,37 @@ from TheApi import api
 from MPXMusic import app
 
 # Advice
-@app.on_message(filters.command("advice"))
-async def advice(_, message):
-    A = await message.reply_text("...")
-    res = await api.get_advice()
-    await A.edit(res)
+# @app.on_message(filters.command("advice"))
+# async def advice(_, message):
+#     A = await message.reply_text("...")
+#     res = await api.get_advice()
+#     await A.edit(res)
 
 # Joke
-@app.on_message(filters.command("joke"))
-async def get_joke(_, message):
-    response = requests.get(
-        "https://v2.jokeapi.dev/joke/Any?blacklistFlags=political"
-    )
-    r = response.json()
-    joke_text = r["setup"]
-    await message.reply_text(joke_text)
+# @app.on_message(filters.command("joke"))
+# async def get_joke(_, message):
+#     response = requests.get(
+#         "https://v2.jokeapi.dev/joke/Any?blacklistFlags=political"
+#     )
+#     r = response.json()
+#     joke_text = r["setup"]
+#     await message.reply_text(joke_text)
 
 bored_api_url = "https://apis.scrimba.com/bored/api/activity"
 
 # Bored
-@app.on_message(filters.command("bored"))
-async def bored_command(client, message):
-    response = requests.get(bored_api_url)
-    if response.status_code == 200:
-        data = response.json()
-        activity = data.get("activity")
-        if activity:
-            await message.reply(f"{activity}")
-        else:
-            await message.reply("Nᴏ ᴀᴄᴛɪᴠɪᴛʏ ғᴏᴜɴᴅ.")
-    else:
-        await message.reply("Fᴀɪʟᴇᴅ ᴛᴏ ғᴇᴛᴄʜ ᴀᴄᴛɪᴠɪᴛʏ.")
+# @app.on_message(filters.command("bored"))
+# async def bored_command(client, message):
+#     response = requests.get(bored_api_url)
+#     if response.status_code == 200:
+#         data = response.json()
+#         activity = data.get("activity")
+#         if activity:
+#             await message.reply(f"{activity}")
+#         else:
+#             await message.reply("Nᴏ ᴀᴄᴛɪᴠɪᴛʏ ғᴏᴜɴᴅ.")
+#     else:
+#         await message.reply("Fᴀɪʟᴇᴅ ᴛᴏ ғᴇᴛᴄʜ ᴀᴄᴛɪᴠɪᴛʏ.")
 
 @app.on_message(filters.command("hug"))
 async def huggg(client, message):
@@ -52,17 +52,17 @@ async def huggg(client, message):
     except Exception as e:
         await message.reply_text(f"Error: {e}")
 
-# Generate QR
-@app.on_message(filters.command(["qr"]))
-async def write_text(client, message):
-    if len(message.command) < 2:
-        await message.reply_text("**Usage**\n:- `/qr https://t.me/HeinHtetKyaw`")
-        return
-    text = " ".join(message.command[1:])
-    photo_url = "https://apis.xditya.me/qr/gen?text=" + text
-    await app.send_photo(
-        chat_id=message.chat.id, photo=photo_url, caption="Here is your qrcode"
-    )
+# # Generate QR
+# @app.on_message(filters.command(["qr"]))
+# async def write_text(client, message):
+#     if len(message.command) < 2:
+#         await message.reply_text("**Usage**\n:- `/qr https://t.me/HeinHtetKyaw`")
+#         return
+#     text = " ".join(message.command[1:])
+#     photo_url = "https://apis.xditya.me/qr/gen?text=" + text
+#     await app.send_photo(
+#         chat_id=message.chat.id, photo=photo_url, caption="Here is your qrcode"
+#     )
 
 # Google
 @app.on_message(filters.command(["google", "gle"]))
@@ -112,15 +112,6 @@ __HELP__ = """
 /quiz - Gᴇᴛs ʀᴀɴᴅᴏᴍ ǫᴜɪᴢ.
 
 /font [text] - ᴄᴏɴᴠᴇʀᴛs sɪᴍᴩʟᴇ ᴛᴇxᴛ ᴛᴏ ʙᴇᴀᴜᴛɪғᴜʟ ᴛᴇxᴛ ʙʏ ᴄʜᴀɴɢɪɴɢ ɪᴛ's ғᴏɴᴛ.
-
-/truth - ɢᴇᴛ ᴀ ʀᴀɴᴅᴏᴍ ᴛʀᴜᴛʜ ǫᴜᴇsᴛɪᴏɴ. ᴀɴsᴡᴇʀ ʜᴏɴᴇsᴛʟʏ!
-/dare - ɢᴇᴛ ᴀ ʀᴀɴᴅᴏᴍ ᴅᴀʀᴇ ᴄʜᴀʟʟᴇɴɢᴇ. ᴄᴏᴍᴘʟᴇᴛᴇ ɪᴛ ɪғ ʏᴏᴜ ᴅᴀʀᴇ!
-
-**ɴᴏᴛᴇ:**
-ɪғ ʏᴏᴜ ᴇɴᴄᴏᴜɴᴛᴇʀ ᴀɴʏ ɪssᴜᴇs ᴡɪᴛʜ ғᴇᴛᴄʜɪɴɢ ǫᴜᴇsᴛɪᴏɴs, ᴘʟᴇᴀsᴇ ᴛʀʏ ᴀɢᴀɪɴ ʟᴀᴛᴇʀ.
-
-
-/qr - Gᴇᴛs Gᴇɴᴇʀᴀᴛᴇᴅ QR.
 
 /google [ǫᴜᴇʀʏ] - ᴛᴏ sᴇᴀʀᴄʜ ᴏɴ ɢᴏᴏɢʟᴇ ᴀɴᴅ ɢᴇᴛ ʀᴇsᴜʟᴛs.
 
